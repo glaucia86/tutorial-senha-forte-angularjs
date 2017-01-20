@@ -6,7 +6,7 @@ Código desenvolvido durante o artigo escrito sobre como criar um medidor de sen
 
 - AngularJs ~ 1.5.9
 - Framework Bootstrap 3;
-- Biblioteca: zxcvbn
+- Biblioteca: [zxcvbn](https://github.com/dropbox/zxcvbn)
 - JavaScript
 - IDE Visual Code
 - Bower
