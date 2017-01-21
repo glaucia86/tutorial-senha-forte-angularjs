@@ -27,11 +27,9 @@
     }
 }).call(this);
 
-(function(){
     
 /* Criando um módulo da aplicação */
 angular.module('senhaSegura', []);
 
-    /* Aqui estamos adicionando o controle do módulo criado */
-    angular.module('senhaSegura').controller('FormController',function($scope) {});
-});
+/* Aqui estamos adicionando o controle do módulo criado */
+angular.module('senhaSegura').controller('FormController',function($scope) {});
