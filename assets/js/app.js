@@ -6,29 +6,29 @@
  * Description: Arquivo responsável por toda a lógica do projeto.
  */
 
-(function(){
+(function() {
     var ZXCVBN_SRC = 'bower_components/zxcvbn/dist/zxcvbn.js';
 
     var async_load = function() {
-        var primeiroElemento, script;
+        var primeiroElemento, scrt;
 
         /* Criando um elemento <script> para ser usado pelo DOM API*/
-        script = document.createElement('script');
+        scrt = document.createElement('script');
 
         /* Iniciar os atributos no elemento script */
-        script.src = ZXCVBN_SRC;
-        script.type = 'text/javascript';
-        script.async = true; //async é um atributo do HTML5
+        scrt.src = ZXCVBN_SRC;
+        scrt.type = 'text/javascript';
+        scrt.async = true; //async é um atributo do HTML5
 
         /* Agora aqui nós vamos pegar o primeiro elemento do script no documento */
         primeiroElemento = document.getElementsByTagName('script')[0];
 
         /* Em seguida vamos inserir o elemento <script> antes do primeiro elemento no documento */
-        return primeiroElemento.parentNode.insertBefore(script, primeiroElemento);
+        return primeiroElemento.parentNode.insertBefore(scrt, primeiroElemento);
     };
 
     /* Agora... vamos adicionar o async_load como callback para o evento window load */
-    if(window.attachElement != null) {
+    if (window.attachEvent != null) {
         window.attachEvent('onload', async_load);
     } else {
         window.addEventListener('load', async_load, false);
@@ -37,9 +37,9 @@
 
 (function(){
     
-    /* Criando um módulo da aplicação */
-    angular.module('SenhaSegura', []);
+/* Criando um módulo da aplicação */
+angular.module('senhaSegura', []);
 
     /* Aqui estamos adicionando o controle do módulo criado */
-    angular.module('SenhaSegura').controller('FormController', function($scope) {});
+    angular.module('senhaSegura').controller('FormController',function($scope) {});
 });
