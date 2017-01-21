@@ -1,11 +1,3 @@
-/**
- * Arquivo: app.js
- * Author: Glaucia Lemos
- * Data: 20/01/2017
- * 
- * Description: Arquivo responsável por toda a lógica do projeto.
- */
-
 (function() {
     var ZXCVBN_SRC = 'bower_components/zxcvbn/dist/zxcvbn.js';
 
