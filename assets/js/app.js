@@ -34,3 +34,12 @@
         window.addEventListener('load', async_load, false);
     }
 }).call(this);
+
+(function(){
+    
+    /* Criando um módulo da aplicação */
+    angular.module('SenhaSegura', []);
+
+    /* Aqui estamos adicionando o controle do módulo criado */
+    angular.module('SenhaSegura').controller('FormController', function($scope) {});
+});
