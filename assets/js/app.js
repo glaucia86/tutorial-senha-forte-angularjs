@@ -21,7 +21,7 @@
         script.async = true; //async é um atributo do HTML5
 
         /* Agora aqui nós vamos pegar o primeiro elemento do script no documento */
-        primeiroElemento = document.getElementByTagName('script')[0];
+        primeiroElemento = document.getElementsByTagName('script')[0];
 
         /* Em seguida vamos inserir o elemento <script> antes do primeiro elemento no documento */
         return primeiroElemento.parentNode.insertBefore(script, primeiroElemento);
