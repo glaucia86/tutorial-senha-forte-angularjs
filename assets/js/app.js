@@ -44,4 +44,39 @@ angular.module('SenhaSegura').filter('tamanhoSenha', [function() {
     };
 }]);
 
-/** */
+/* Criando aqui um serviço para a funcionalidade zxcvbn() */
+angular.module('SenhaSegura').factory('zxcvbn', [function(){
+    return {
+        score: function() {
+            var count = zxcvbn.apply(null, arguments);
+            return count && count.score;
+        }
+    };
+}]);
+
+/* Criando aqui uma diretiva para o 'senhaOk' como dependência do 'zxcvbn' */
+angular.module('SenhaSegura').directive('senhaOk', ['zxcvbn', function(zxcvbn) {
+    return {
+        // restrict to only attribute and class
+        restrict: 'AC',
+
+        // use the NgModelController
+        require: 'ngModel',
+
+        // add the NgModelController as a dependency to your link function
+        link: function($scope, $element, $attrs, ngModelCtrl) {
+            $element.on('blur change keydown', function(evt) {
+                $scope.$evalAsync(function($scope) {
+                    // update the $scope.password with the element's value
+                    var senha = $scope.senha = $element.val();
+
+                    // resolve password strength score using zxcvbn service
+                    $scope.senhaSegura = senha ? (senha.length > 7 && zxcvbn.score(senha) || 0) : null;
+
+                    // define the validity criterion for okPassword constraint
+                    ngModelCtrl.$setValidity('senhaOk', $scope.senhaSegura >= 2);
+                });
+            });
+        }
+    };
+}]);
