@@ -29,7 +29,7 @@
 
     
 /* Criando um módulo da aplicação */
-angular.module('senhaSegura', []);
+angular.module('SenhaSegura', []);
 
 /* Aqui estamos adicionando o controle do módulo criado */
-angular.module('senhaSegura').controller('FormController',function($scope) {});
+angular.module('SenhaSegura').controller('FormController',function($scope) {});
