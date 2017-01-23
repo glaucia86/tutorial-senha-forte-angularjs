@@ -27,9 +27,21 @@
     }
 }).call(this);
 
-    
+
 /* Criando um módulo da aplicação */
 angular.module('SenhaSegura', []);
 
 /* Aqui estamos adicionando o controle do módulo criado */
 angular.module('SenhaSegura').controller('FormController',function($scope) {});
+
+/** Criando um filtro para tamanhoSenha */
+angular.module('SenhaSegura').filter('tamanhoSenha', [function() {
+    return function(valor, maximo) {
+        var valor = angular.isString(valor) ? valor : '', 
+        maximo = isFinite(maximo) ? maximo : 7;
+
+        return valor && (valor.length > maximo ? maximo + '+' : valor.length);
+    };
+}]);
+
+/** */
