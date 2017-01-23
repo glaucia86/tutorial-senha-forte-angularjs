@@ -59,6 +59,13 @@
                 </div>
 
                 <input type="password" class="form-control" ng-class="(cadastreAqui.senha.$dirty && cadastreAqui.senha.$invalid) ? 'error' : ''" id="senha" name="senha" placeholder="Digite a Senha" ng-required="true" ng-model="senha">
+
+                <div class="label password-count" ng-class="senha.length > 7 ? 'label-success' : 'label-danger'" ng-cloak>{{ senha | tamanhoSenha:7 }}</div>
+
+                <div class="strength-meter">
+                    <div class="strength-meter-fill" data-strength="{{senhaForte}}"></div>
+            </div>            
+                
             </div>
             <!-- Fim do campo: Senha -->
 
